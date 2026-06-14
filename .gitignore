@@ -1,0 +1,6 @@
+.env
+.env.local
+.env*.local
+config.js
+secrets.js
+node_modules/
