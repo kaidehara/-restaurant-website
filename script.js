@@ -1,3 +1,20 @@
+const SUPABASE_URL = 'https://ppisfxievyzsrojhcwkb.supabase.co';
+const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InBwaXNmeGlldnl6c3Jvamhjd2tiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODE0NDgwMTMsImV4cCI6MjA5NzAyNDAxM30.CuY_kic3eezoHNhni7D33EhSrPBq4up67SdDfLqoDbM';
+
+async function saveReservation(data) {
+  const res = await fetch(`${SUPABASE_URL}/rest/v1/reservations`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'apikey': SUPABASE_ANON_KEY,
+      'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
+      'Prefer': 'return=minimal'
+    },
+    body: JSON.stringify(data)
+  });
+  if (!res.ok) throw new Error(await res.text());
+}
+
 const menuData = {
   starters: [
     { name: 'Burrata & Heirloom Tomato', price: 'RM 38', desc: 'Creamy burrata, roasted cherry tomatoes, aged balsamic, fresh basil oil.', tag: 'veg', tagLabel: 'Vegetarian', img: 'https://images.unsplash.com/photo-1529042410759-befb1204b468?w=400&q=80' },
@@ -74,18 +91,27 @@ if (resDate) {
   resDate.value = today;
 }
 
-window.handleReserve = function(e) {
+window.handleReserve = async function(e) {
   e.preventDefault();
   const btn = e.target.querySelector('button[type=submit]');
+  const fields = e.target.querySelectorAll('input, select, textarea');
+  const [name, email, phone, guests, date, time, notes] = [...fields].map(f => f.value);
+
   btn.textContent = 'Confirming…';
   btn.disabled = true;
-  setTimeout(() => {
+
+  try {
+    await saveReservation({ name, email, phone, guests, date, time, notes });
     document.getElementById('formSuccess').classList.add('show');
     e.target.reset();
+    if (resDate) resDate.value = new Date().toISOString().split('T')[0];
+  } catch (err) {
+    alert('Something went wrong. Please try again.');
+    console.error(err);
+  } finally {
     btn.textContent = 'Confirm Reservation';
     btn.disabled = false;
-    if (resDate) resDate.value = new Date().toISOString().split('T')[0];
-  }, 1200);
+  }
 };
 
 const observer = new IntersectionObserver((entries) => {
