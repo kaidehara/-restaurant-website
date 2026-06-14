@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Golden Fork — Fine Dining</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav id="navbar">
+    <div class="nav-inner">
+      <a href="#home" class="logo">The Golden Fork</a>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#menu">Menu</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <a href="#reserve" class="btn-nav">Reserve a Table</a>
+      <button class="hamburger" id="hamburger" aria-label="Open menu">&#9776;</button>
+    </div>
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="#about" onclick="closeMobile()">About</a>
+      <a href="#menu" onclick="closeMobile()">Menu</a>
+      <a href="#gallery" onclick="closeMobile()">Gallery</a>
+      <a href="#contact" onclick="closeMobile()">Contact</a>
+      <a href="#reserve" onclick="closeMobile()" class="btn-mobile">Reserve a Table</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section id="home" class="hero">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <p class="hero-tag">Now Open — Grand Opening Week</p>
+      <h1>Where Every Bite<br/>Tells a Story</h1>
+      <p class="hero-sub">Elevated cuisine crafted with local ingredients,<br/>served in an atmosphere you'll never forget.</p>
+      <div class="hero-btns">
+        <a href="#menu" class="btn-primary">Explore the Menu</a>
+        <a href="#reserve" class="btn-outline">Book a Table</a>
+      </div>
+    </div>
+    <div class="hero-scroll">
+      <span>Scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- OPENING BANNER -->
+  <div class="opening-banner">
+    <span>&#127881;</span>
+    Grand Opening — Enjoy 20% off your first visit with code <strong>GOLDENOPEN</strong>
+    <span>&#127881;</span>
+  </div>
+
+  <!-- ABOUT -->
+  <section id="about" class="about section">
+    <div class="container two-col">
+      <div class="about-img">
+        <div class="img-placeholder about-ph">
+          <div class="ph-icon">&#127859;</div>
+          <p>Our Kitchen</p>
+        </div>
+        <div class="about-badge">Est. 2024</div>
+      </div>
+      <div class="about-text">
+        <p class="section-label">Our Story</p>
+        <h2>Born from Passion,<br/>Served with Heart</h2>
+        <p>The Golden Fork was founded by Chef Amara Hassan and sommelier David Lim — two lifelong friends who dreamed of a place where fine dining felt like coming home.</p>
+        <p>Every dish on our menu is a love letter to local farmers, seasonal produce, and the bold flavours of our region. We believe extraordinary food should be an experience, not just a meal.</p>
+        <div class="about-stats">
+          <div class="stat">
+            <span class="stat-num">40+</span>
+            <span class="stat-label">Menu items</span>
+          </div>
+          <div class="stat">
+            <span class="stat-num">12</span>
+            <span class="stat-label">Local suppliers</span>
+          </div>
+          <div class="stat">
+            <span class="stat-num">100%</span>
+            <span class="stat-label">Fresh daily</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MENU PREVIEW -->
+  <section id="menu" class="menu-section section">
+    <div class="container">
+      <p class="section-label center">Our Menu</p>
+      <h2 class="center">Crafted to Delight</h2>
+      <div class="menu-tabs">
+        <button class="tab active" data-tab="starters">Starters</button>
+        <button class="tab" data-tab="mains">Mains</button>
+        <button class="tab" data-tab="desserts">Desserts</button>
+        <button class="tab" data-tab="drinks">Drinks</button>
+      </div>
+
+      <div class="menu-grid" id="menuGrid"></div>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section id="gallery" class="gallery-section section">
+    <div class="container">
+      <p class="section-label center">Gallery</p>
+      <h2 class="center">A Feast for the Eyes</h2>
+      <div class="gallery-grid">
+        <div class="gal-item large">
+          <img src="https://images.unsplash.com/photo-1546964124-0cce460f38ef?w=700&q=80" alt="Wagyu Beef Tenderloin" />
+          <span>Wagyu Beef Tenderloin</span>
+        </div>
+        <div class="gal-item">
+          <img src="https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?w=500&q=80" alt="Pan-Roasted Salmon" />
+          <span>Pan-Roasted Salmon</span>
+        </div>
+        <div class="gal-item">
+          <img src="https://images.unsplash.com/photo-1476124369491-e7addf5db371?w=500&q=80" alt="Burrata Starter" />
+          <span>Burrata & Tomato</span>
+        </div>
+        <div class="gal-item">
+          <img src="https://images.unsplash.com/photo-1587314168485-3236d6710814?w=500&q=80" alt="Crème Brûlée" />
+          <span>Crème Brûlée</span>
+        </div>
+        <div class="gal-item">
+          <img src="https://images.unsplash.com/photo-1555126634-323283e090fa?w=500&q=80" alt="Mushroom Risotto" />
+          <span>Wild Mushroom Risotto</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESERVATIONS -->
+  <section id="reserve" class="reserve-section section">
+    <div class="container two-col reserve-inner">
+      <div class="reserve-info">
+        <p class="section-label">Reservations</p>
+        <h2>Join Us for<br/>an Unforgettable Evening</h2>
+        <p>We're open Tuesday through Sunday, welcoming guests for lunch and dinner. Walk-ins are welcome, but reservations are recommended.</p>
+        <div class="hours">
+          <div class="hours-row"><span>Tue – Fri</span><span>12pm – 10pm</span></div>
+          <div class="hours-row"><span>Sat – Sun</span><span>11am – 11pm</span></div>
+          <div class="hours-row"><span>Monday</span><span>Closed</span></div>
+        </div>
+      </div>
+      <form class="reserve-form" id="reserveForm" onsubmit="handleReserve(event)">
+        <div class="form-row">
+          <input type="text" placeholder="Your Name" required />
+          <input type="email" placeholder="Email Address" required />
+        </div>
+        <div class="form-row">
+          <input type="tel" placeholder="Phone Number" />
+          <select>
+            <option value="" disabled selected>Party Size</option>
+            <option>1 person</option>
+            <option>2 people</option>
+            <option>3 – 4 people</option>
+            <option>5 – 6 people</option>
+            <option>7+ people (call us)</option>
+          </select>
+        </div>
+        <div class="form-row">
+          <input type="date" id="resDate" />
+          <select>
+            <option value="" disabled selected>Preferred Time</option>
+            <option>12:00 PM</option>
+            <option>1:00 PM</option>
+            <option>6:00 PM</option>
+            <option>7:00 PM</option>
+            <option>8:00 PM</option>
+            <option>9:00 PM</option>
+          </select>
+        </div>
+        <textarea placeholder="Special requests or dietary requirements..." rows="3"></textarea>
+        <button type="submit" class="btn-primary full">Confirm Reservation</button>
+        <div class="form-success" id="formSuccess">
+          &#10003; Reservation received! We'll confirm via email within 24 hours.
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="contact-section section">
+    <div class="container">
+      <p class="section-label center">Find Us</p>
+      <h2 class="center">Come Visit</h2>
+      <div class="contact-cards">
+        <div class="contact-card">
+          <div class="cc-icon">&#128205;</div>
+          <h3>Address</h3>
+          <p>12 Harbour Lane<br/>Downtown District<br/>Kuala Lumpur, 50480</p>
+        </div>
+        <div class="contact-card">
+          <div class="cc-icon">&#128222;</div>
+          <h3>Phone</h3>
+          <p>+60 3-1234 5678</p>
+          <p class="muted">Available during opening hours</p>
+        </div>
+        <div class="contact-card">
+          <div class="cc-icon">&#128140;</div>
+          <h3>Email</h3>
+          <p>hello@goldenfork.my</p>
+          <p class="muted">We reply within 24 hours</p>
+        </div>
+        <div class="contact-card">
+          <div class="cc-icon">&#128247;</div>
+          <h3>Follow Us</h3>
+          <p>@goldenfork.kl</p>
+          <p class="muted">Instagram · Facebook · TikTok</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <span class="logo">The Golden Fork</span>
+      <p>&copy; 2024 The Golden Fork. All rights reserved.</p>
+      <div class="footer-links">
+        <a href="#">Privacy</a>
+        <a href="#">Terms</a>
+        <a href="#">Careers</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
